@@ -1,16 +1,24 @@
 package demo_sesion_01.model;
 
 public class Curso {
-	String code;
+
+	Integer id;
+	Integer codigo;
 	String nombre;
 	String nivel;
 	String profesor;
 	
-	public String getCode() {
-		return code;
+	public Integer getId() {
+		return id;
 	}
-	public void setCode(String code) {
-		this.code = code;
+	public void setId(Integer id) {
+		this.id = id;
+	}
+	public Integer getCodigo() {
+		return codigo;
+	}
+	public void setCodigo(Integer codigo) {
+		this.codigo = codigo;
 	}
 	public String getNombre() {
 		return nombre;

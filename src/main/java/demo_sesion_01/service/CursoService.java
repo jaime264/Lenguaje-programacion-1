@@ -6,7 +6,7 @@ import demo_sesion_01.model.Curso;
 
 public interface CursoService {
 
-	public Curso getCurso();
+	public Curso getCurso(int id);
 	public List<Curso> listCurso();
 	public int createCurso();
 	public int updateCurso();
