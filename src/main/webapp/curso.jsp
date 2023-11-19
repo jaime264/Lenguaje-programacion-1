@@ -1,3 +1,5 @@
+<%@page import="demo_sesion_01.model.Curso"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -75,40 +77,26 @@
 							<th>Acciones</th>
 						</tr>
 					</thead>
-					<tbody>
+					<tbody>	
+					<%
+						List<Curso> listCursos = (List<Curso>) request.getAttribute("listCursos");
+						if(listCursos != null){
+							for(Curso c : listCursos){
+					%>					
 						<tr>
-							<td>1</td>
-							<td>2414</td>
-							<td>Seguridad de Aplicaciones</td>
-							<td>Intermedio</td>
-							<td>Jose Gomez</td>
-							<td>
-								<button type="button" class="btn btn primary">Editar</button>
-								<button type="button" class="btn btn-danger">Eliminar</button>
-							</td>
-						</tr>
-						<tr>
-							<td>2</td>
-							<td>1956</td>
-							<td>Desarrollo de Aplicaciones Móviles I</td>
-							<td>Avanzado</td>
-							<td>Diana Vera</td>
+							<td><%=c.getId() %></td>
+							<td><%=c.getCodigo() %></td>
+							<td><%=c.getNombre() %></td>
+							<td><%=c.getNivel() %></td>
+							<td><%=c.getProfesor() %></td>
 							<td>
 								<button type="button" class="btn btn-primary">Editar</button>
 								<button type="button" class="btn btn-danger">Eliminar</button>
 							</td>
 						</tr>
-						<tr>
-							<td>3</td>
-							<td>7878</td>
-							<td>Programación Orientada a Objetos I</td>
-							<td>Intermedio</td>
-							<td>Julio Sanchez</td>
-							<td>
-								<button type="button" class="btn btn-primary">Editar</button>
-								<button type="button" class="btn btn-danger">Eliminar</button>
-							</td>
-						</tr>
+						<%	}
+						} %>
+						
 					</tbody>
 				</table>
 			</div>

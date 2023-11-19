@@ -54,7 +54,7 @@ public class CursoServiceImpl implements CursoService {
 		ResultSet rs = null;
 		try {
 			cn = MySQLConexion.getConexion();
-			String query = "Select * from cursos";
+			String query = "Select * from curso";
 			psmt = cn.prepareStatement(query);
 			rs = psmt.executeQuery();
 			
