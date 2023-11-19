@@ -19,19 +19,6 @@ public class RegistroServlet extends HttpServlet {
 
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String code = request.getParameter("txtCode");
-		String nombre = request.getParameter("txtName");
-		String nivel = request.getParameter("txtLevel");
-		String profesor = request.getParameter("txtTeacher");
-
-		Curso c = new Curso();
-		c.setCode(code);
-		c.setNombre(nombre);
-		c.setNivel(nivel);
-		c.setProfesor(profesor);
-
-		request.setAttribute("curso", c);
-		request.getRequestDispatcher("datosCurso.jsp").forward(request, response);
 
 	}
 

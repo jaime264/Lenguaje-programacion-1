@@ -8,6 +8,15 @@ public class Curso {
 	String nivel;
 	String profesor;
 	
+	public Curso() {
+	}
+	public Curso(Integer id, Integer codigo, String nombre, String nivel, String profesor) {
+		this.id = id;
+		this.codigo = codigo;
+		this.nombre = nombre;
+		this.nivel = nivel;
+		this.profesor = profesor;
+	}
 	public Integer getId() {
 		return id;
 	}
