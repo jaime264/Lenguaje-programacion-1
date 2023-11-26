@@ -38,26 +38,26 @@
 				<h3>Registrar Cursos</h3>
 				<form action="CursoServlet?type=registrar" method="post" name="cursoRegistration">
 					<div class="form-group">
-						<label>Id</label> <input class="form-control" type="text"
+						<label>Id</label> <input class="form-control" type="text" value="${curso.id}"
 							name="txtId" id="txtId" readonly="readonly">
 					</div>
 					<div class="form-group">
-						<label>Código</label> <input class="form-control" type="number"
+						<label>Código</label> <input class="form-control" type="number"  value="${curso.codigo}"
 							name="txtCodigo" id="txtCodigo">
 					</div>
 					<br>
 					<div class="form-group">
-						<label>Nombre</label> <input class="form-control" type="text"
+						<label>Nombre</label> <input class="form-control" type="text"  value="${curso.nombre}"
 							name="txtNombre" id="txtNombre">
 					</div>
 					<br>
 					<div class="form-group">
-						<label>Nivel</label> <input class="form-control" type="text"
+						<label>Nivel</label> <input class="form-control" type="text"  value="${curso.nivel}"
 							name="txtNivel" id="txtNivel">
 					</div>
 					<br>
 					<div class="form-group">
-						<label>Profesor</label> <input class="form-control" type="text"
+						<label>Profesor</label> <input class="form-control" type="text"  value="${curso.profesor}"
 							name="txtProfesor" id="txtProfesor">
 					</div>
 					<br> <input type="submit" class="btn btn-primary"
@@ -90,8 +90,8 @@
 							<td><%=c.getNivel() %></td>
 							<td><%=c.getProfesor() %></td>
 							<td>
-								<button type="button" class="btn btn-primary">Editar</button>
-								<button type="button" class="btn btn-danger">Eliminar</button>
+								<a href="CursoServlet?type=obtener&id=<%=c.getId() %>" class="btn btn-primary">Editar</a>
+								<a href="CursoServlet?type=eliminar&id=<%=c.getId() %>" class="btn btn-danger">Eliminar</a>
 							</td>
 						</tr>
 						<%	}

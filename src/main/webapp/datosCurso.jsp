@@ -12,7 +12,7 @@
 	<% Curso  c = (Curso)request.getAttribute("curso");%>
 	
 	<h2>
-		Codigo curso: <%=c.getCode()%> <br>
+		Codigo curso: <%=c.getCodigo()%> <br>
 		Nombre curso: <%=c.getNombre() %> <br>
 		Nivel curso: <%=c.getNivel()%> <br>
 		Profesor curso: <%=c.getProfesor()%> <br>

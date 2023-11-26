@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.mysql.cj.xdevapi.PreparableStatement;
+
 import demo_sesion_01.model.Curso;
 import demo_sesion_01.service.CursoService;
 import demo_sesion_01.util.MySQLConexion;
@@ -110,35 +112,59 @@ public class CursoServiceImpl implements CursoService {
 	}
 
 	@Override
-	public int updateCurso() {
+	public int updateCurso(Curso curso) {
+		int value = 0;
+		PreparedStatement psmt = null;
+		Connection cn = null;
 		try {
-
+			cn = MySQLConexion.getConexion();
+			String query = "UPDATE instituto.curso "
+					+ "SET codigo=?, nombre=?, nivel=?, profesor=? "
+					+ "WHERE id=?";
+			psmt = cn.prepareStatement(query);
+			psmt.setInt(1, curso.getCodigo());
+			psmt.setString(2, curso.getNombre());
+			psmt.setString(3, curso.getNivel());
+			psmt.setString(4, curso.getProfesor());
+			psmt.setInt(5, curso.getId());
+			
+			value = psmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 			try {
-
+				if(cn != null) cn.close();
+				if(psmt != null) psmt.close();
 			} catch (Exception e2) {
 				e2.printStackTrace();
 			}
 		}
-		return 0;
+		return value;
 	}
 
 	@Override
-	public int deleteCurso() {
+	public int deleteCurso(int id) {
+		int value = 0;
+		PreparedStatement psmt = null;
+		Connection cn = null;		
 		try {
+			cn = MySQLConexion.getConexion();
+			String query = "DELETE FROM instituto.curso WHERE id=?";
+			psmt = cn.prepareStatement(query);
+			psmt.setInt(1, id);
+			value = psmt.executeUpdate();
 
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 			try {
-
+				if(cn != null) cn.close();
+				if(psmt != null) psmt.close();
 			} catch (Exception e2) {
 				e2.printStackTrace();
 			}
 		}
-		return 0;
+		return value;
 	}
 
 }

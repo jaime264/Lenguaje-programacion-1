@@ -13,7 +13,7 @@ public class MySQLConexion {
 			Class.forName("com.mysql.cj.jdbc.Driver").getDeclaredConstructor().newInstance();
 			String url = "jdbc:mysql://localhost:3306/instituto?useSSL=false&useTimezone=true&serverTimezone=UTC";
 			String usr = "root";
-			String pws = "Mysql123!";
+			String pws = "mysql";
 			cn = DriverManager.getConnection(url, usr, pws);
 			
 		} catch (ClassNotFoundException e) {

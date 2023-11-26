@@ -9,7 +9,7 @@ public interface CursoService {
 	public Curso getCurso(int id);
 	public List<Curso> listCurso();
 	public int createCurso(Curso curso);
-	public int updateCurso();
-	public int deleteCurso();
+	public int updateCurso(Curso curso);
+	public int deleteCurso(int id);
 		
 }
