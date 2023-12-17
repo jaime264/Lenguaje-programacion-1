@@ -9,8 +9,47 @@
 	<title>Plantilla Básica JSF</title>
 </h:head>
 <h:body>
-	
-	<h1>HOLA MUNDO JSF</h1>
-	
+	<h2>
+		<h:outputText value="Lista de Cursos"></h:outputText>
+	</h2>
+	<h:form>
+		<h:commandButton action="#{cursoBean.nuevo()}" value="Nuevo Curso"></h:commandButton>
+		<h:dataTable value="#{cursoBean.listarCursos()}" var="curso"
+			border="1">
+			<h:column>
+				<f:facet name="header">Id</f:facet>
+				<h:outputText value="#{curso.id}"></h:outputText>
+			</h:column>
+			<h:column>
+				<f:facet name="header">Nombre</f:facet>
+				<h:outputText value="#{curso.nombre}"></h:outputText>
+			</h:column>
+			<h:column>
+				<f:facet name="header">Fecha Inscripcion</f:facet>
+				<h:outputText value="#{curso.fechaInscripcion}"></h:outputText>
+
+			</h:column>
+			<h:column>
+				<f:facet name="header">Precio</f:facet>
+				<h:outputText value="#{curso.precio}"></h:outputText>
+			</h:column>
+			<h:column>
+				<f:facet name="header">Profesor</f:facet>
+				<h:outputText value="#{curso.profesor}"></h:outputText>
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">Editar</f:facet>
+				<h:commandButton action="#{cursoBean.editar(curso.id)}"
+					value="Editar"></h:commandButton>
+			</h:column>
+			<h:column>
+				<f:facet name="header">Eliminar</f:facet>
+				<h:commandButton action="#{cursoBean.eliminar(curso.id)}"
+					value="Eliminar"></h:commandButton>
+			</h:column>
+
+		</h:dataTable>
+	</h:form>
 </h:body>
 </html>

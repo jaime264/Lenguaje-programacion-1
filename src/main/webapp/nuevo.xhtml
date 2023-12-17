@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://xmlns.jcp.org/jsf/core"
+    xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1" http-equiv="X-UA-Compatible" />
+    <title>Nuevo Curso</title>
+</h:head>
+<h:body>
+    <h:form>
+        <h:panelGrid columns="2" cellspacing="20" border="1">
+            <f:facet name="header">
+                <h:outputText value="Nuevo Curso" />
+            </f:facet>
+
+            <h:outputText value="Nombre" />
+            <h:inputText value="#{curso.nombre}" />
+
+            <h:outputText value="Fecha de Inscripción" />
+            <p:calendar value="#{curso.fechaInscripcion}" showOn="button" pattern="yyyy-MM-dd" />
+
+            <h:outputText value="Precio" />
+            <h:inputText value="#{curso.precio}" />
+            	
+            <h:outputText value="Profesor" />            
+			<h:selectOneMenu value="#{curso.profesor}">
+			    <f:selectItems value="#{sessionScope.profesores}" var="profesor" itemLabel="#{profesor.nombre}" itemValue="#{profesor.nombre}" />
+			</h:selectOneMenu>
+
+            <f:facet name="footer">
+                <h:commandButton action="#{cursoBean.guardar(curso)}" value="Guardar" />
+            </f:facet>
+        </h:panelGrid>
+    </h:form>
+</h:body>
+</html>
